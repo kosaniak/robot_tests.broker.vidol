@@ -118,3 +118,7 @@ def procuring_entity_name(tender_data):
 
 def join(l, separator):
     return separator.join(l)
+
+def price_format(val):
+    val = val.replace(' ','').replace(',','.')
+    return float(val)
