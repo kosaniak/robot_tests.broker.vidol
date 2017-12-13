@@ -770,25 +770,6 @@ Login
   ${countDocuments}=     Get Matching Xpath Count   xpath=//p[contains(@class,'document-datePublished')]
   [return]               ${countDocuments}
 
-Отримати кількість документів в ставці
-  [Arguments]  ${username}  ${tender_uaid}  ${bid_index}
-  vidol.Пошук тендера по ідентифікатору   ${username}   ${tender_uaid}
-  Зайти в розділ кваліфікація
-  ${drop_id}=  Catenate   SEPARATOR=   ${UBIZ_LOT_ID}   _pending
-  ${action_id}=   Catenate   SEPARATOR=   ${UBIZ_LOT_ID}   _confirm_protocol
-  Wait Until Keyword Succeeds   10 x   20 s   Run Keywords
-  ...   Reload Page
-  ...   AND   Клацнути по випадаючому списку  ${drop_id}
-  ...   AND   Element Should Be Visible   id=${action_id}
-  Виконати дію   ${action_id}
-  Wait Until Page Contains   Учасник по лоту   10
-  Wait Until Keyword Succeeds   10 x   15 s   Run Keywords
-  ...   Reload Page
-  ...   AND   Wait Until Page Contains   Підписаний протокол
-  ${bid_doc_number}=   Get Matching Xpath Count   xpath=//a[contains(@class, 'document_title')]
-  Log To Console    ${bid_doc_number}
-  [return]  ${bid_doc_number}
-
 Отримати дані із документу пропозиції
   [Arguments]  ${username}   ${tender_uaid}   ${bid_index}   ${document_index}   ${field}
   ${fileid_index}=   Catenate   SEPARATOR=   ${field}   ${document_index}
