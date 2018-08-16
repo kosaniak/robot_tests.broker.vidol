@@ -395,7 +395,7 @@ Login
   [Arguments]   ${user_name}   ${auction_id}
   vidol.Пошук тендера по ідентифікатору   ${user_name}   ${auction_id}
   Перейти в розділ купую
-  Дія з пропозицією               bid-publication
+  # Дія з пропозицією               bid-publication
   Wait Until Element Is Visible   xpath=//p[contains(text(), 'Купую')]   30
   Дія з пропозицією               bid-recall
   Wait Until Element Is Visible   xpath=//p[contains(text(), 'Купую')]   30
