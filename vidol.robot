@@ -323,6 +323,10 @@ Login
   Run Keyword And Return If       ${qualified} == ${FALSE}   Fail   Учасник не кваліфікований
   vidol.Пошук тендера по ідентифікатору            ${user_name}   ${auction_id}
 
+  Wait Until Keyword Succeeds   15 x   40 s   Run Keywords
+  ...   Reload Page
+  ...   AND   Element Should Be Visible   css=.auction-bid-create
+
   Click Link                      css=.auction-bid-create
   Wait Until Element Is Visible   css=.send
   Scroll To Element               .container
@@ -1452,7 +1456,7 @@ Scroll To Element
   Execute JavaScript           $('#auctionlot-auctionperiod-startdate-disp').removeAttr('readonly');
   Input Text                   id=auctionlot-auctionperiod-startdate-disp   ${auctionPeriodStartDate}
   Input Text                   id=AuctionLot-value-amount               ${valueAmount}
-  SelectBox                    AuctionLot-value-valueAddedTaxIncluded   ${valueAddedTaxIncluded}
+  SwitchBox                    AuctionLot-value-valueAddedTaxIncluded   ${valueAddedTaxIncluded}
   Input Text                   id=AuctionLot-minimalStep-amount         ${minimalStepAmount}
   Input Text                   id=AuctionLot-guarantee-amount           ${guaranteeAmount}
   Click Element                css=.document_box
