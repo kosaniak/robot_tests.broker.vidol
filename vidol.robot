@@ -1048,8 +1048,8 @@ Scroll To Element
   ${decisionDate}=                Get From Dictionary   ${adapted_data.data.decisions[0]}   decisionDate
   ${decisionDate}=                parse_iso   ${decisionDate}   %Y-%m-%d
 
-  Execute JavaScript              $('#decision-date-0').removeAttr('readonly');
-  Input Text                      id=decision-date-0   ${decisionDate}
+  Execute JavaScript              $('#assetdraft-decisions-0-decisiondate').removeAttr('readonly');
+  Input Text                      id=assetdraft-decisions-0-decisiondate   ${decisionDate}
 
   ${contactPoint}=                Get From Dictionary   ${adapted_data.data.assetCustodian}   contactPoint
   Input Text                      id=contactPerson-name        ${contactPoint.name}
@@ -1403,8 +1403,8 @@ Scroll To Element
   Input Text                      css=input[name='LotDraft[decisions][0][decisionID]']   ${adapted_data.data.decisions[0].decisionID}
   ${decisionDate}=                Get From Dictionary   ${adapted_data.data.decisions[0]}   decisionDate
   ${decisionDate}=                parse_iso   ${decisionDate}   %Y-%m-%d
-  Execute JavaScript              $('#decision-date-0').removeAttr('readonly');
-  Input Text                      id=decision-date-0   ${decisionDate}
+  Execute JavaScript              $('#lotdraft-decisions-0-decisiondate').removeAttr('readonly');
+  Input Text                      id=lotdraft-decisions-0-decisiondate   ${decisionDate}
   Click Element                   css=.draft
 
   Wait Until Element Is Visible   xpath=//a[contains(text(), '${asset_uaid}')]
