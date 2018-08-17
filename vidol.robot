@@ -731,7 +731,7 @@ Login
   [Arguments]   ${user_name}   ${auction_id}   ${document_id}   ${field}
   vidol.Пошук тендера у разі наявності змін   ${TENDER['LAST_MODIFICATION_DATE']}   ${user_name}   ${auction_id}
   ${currentStatus}=               Get Text   css=.auction-status
-  ${wasCancelled}=                Run Keyword And Return Status   Should Be Equal   ${currentStatus}   СКАСОВАНИЙ
+  ${wasCancelled}=                Run Keyword And Return Status   Should Be Equal   ${currentStatus}   АУКЦІОН ВІДМІНЕНО
   Run Keyword If   ${wasCancelled}   Таб Скасування
   ...   ELSE    Таб Документи
   ${fieldValue}=                  Get Text   xpath=//div[contains(@data-document-title, '${document_id}')]//*[contains(@class, 'document-${field}')]
@@ -769,7 +769,7 @@ Login
   Click Link                         css=.auction-cancel
   Wait Until Page Contains           Відміна аукціону   45
   Scroll To Element                  .container
-  SelectBox                          cancellation-reason   ${reason}
+  Input Text                         id=cancellation-reason   ${reason}
   Завантажити один документ          ${file_path}
   Click Element                      xpath=//button[contains(text(), 'Відмінити аукціон')]
   Wait Until Page Contains Element   xpath=//a[@href='#cancellations']   45
