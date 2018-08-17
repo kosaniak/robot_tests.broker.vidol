@@ -766,12 +766,12 @@ Login
 Скасувати закупівлю
   [Arguments]   ${user_name}   ${auction_id}   ${reason}   ${file_path}   ${description}
   vidol.Пошук тендера по ідентифікатору               ${user_name}   ${auction_id}
-  Click Link                         css=.auction-cancellation
-  Wait Until Page Contains           Скасування аукціону   45
+  Click Link                         css=.auction-cancel
+  Wait Until Page Contains           Відміна аукціону   45
   Scroll To Element                  .container
   SelectBox                          cancellation-reason   ${reason}
   Завантажити один документ          ${file_path}
-  Click Element                      xpath=//button[contains(text(), 'Скасувати')]
+  Click Element                      xpath=//button[contains(text(), 'Відмінити аукціон')]
   Wait Until Page Contains Element   xpath=//a[@href='#cancellations']   45
 
 Отримати інформацію про awards[0].status
