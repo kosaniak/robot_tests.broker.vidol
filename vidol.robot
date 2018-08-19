@@ -326,7 +326,8 @@ Login
 
   Wait Until Keyword Succeeds   15 x   40 s   Run Keywords
   ...   Reload Page
-  ...   AND   Element Should Be Visible   css=.auction-bid-create
+  ...   AND   Таб Параметри аукціону
+  ...   AND   Element Should Be Visible   css=.auction-period-start
   Sleep   1
   Click Link                      css=.auction-bid-create
   Wait Until Element Is Visible   css=.send
