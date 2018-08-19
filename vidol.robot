@@ -61,6 +61,7 @@ Login
   Wait Until Page Contains Element    id=login-button
   Click Element                       id=login-button
   Wait Until Element Is Visible       id=login-form-login   30
+  Sleep                               1
   Input text                          xpath=//input[contains(@id, 'login-form-login')]   ${USERS.users['${username}'].login}
   Input text                          xpath=//input[contains(@id, 'login-form-password')]   ${USERS.users['${username}'].password}
   Click Element                       id=login-form-button
