@@ -318,6 +318,10 @@ Login
   ${file_path}  ${file_name}  ${file_content}=  create_fake_doc
   Завантажити один документ   ${file_path}
 
+Чи активована процедура
+  ${currentStatus}=   Get Element Attribute   css=.auction-status@data-origin-status
+  Run Keyword Unless   '${currentStatus}' == 'pending.activation'   Fail   Процедура ще не активована
+
 Подати цінову пропозицію
   [Arguments]   ${user_name}   ${auction_id}   ${bid_data}
   ${qualified}=                   Get From Dictionary   ${bid_data.data}   qualified
@@ -326,8 +330,7 @@ Login
 
   Wait Until Keyword Succeeds   15 x   40 s   Run Keywords
   ...   Reload Page
-  ...   AND   Таб Параметри аукціону
-  ...   AND   Element Should Be Visible   css=.auction-period-start
+  ...   AND   Чи активована процедура
   На початок сторінки
   Sleep   1
   Click Link                      css=.auction-bid-create
