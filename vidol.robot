@@ -320,7 +320,7 @@ Login
 
 Чи активована процедура
   ${currentStatus}=   Get Element Attribute   css=.auction-status@data-origin-status
-  Run Keyword Unless   '${currentStatus}' == 'pending.activation'   Fail   Процедура ще не активована
+  Run Keyword If   '${currentStatus}' == 'pending.activation'   Fail   Процедура ще не активована
 
 Подати цінову пропозицію
   [Arguments]   ${user_name}   ${auction_id}   ${bid_data}
